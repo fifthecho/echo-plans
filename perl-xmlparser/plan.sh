@@ -46,6 +46,5 @@ do_build() {
 }
 
 do_install() {
-  attach
   make install
 }
