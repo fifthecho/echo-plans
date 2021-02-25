@@ -1,0 +1,1 @@
+sensu-go-agent start -c {{pkg.svc_config_path}}/agent.yml

@@ -1,0 +1,28 @@
+namespace = "default"
+subscriptions = ["system"]
+labels = ["habitat"]
+annotations = ["habitat"]
+disable_assets = false
+log-level = "warn"
+
+api-host = "127.0.0.1"
+api-port = 3031
+disable-api = false
+events-burst-limit = 10
+events-rate-limit = 10.0
+
+deregister = false
+keepalive-warning-timeout = 120
+keepalive-interval = 20
+
+insecure-skip-tls-verify = true
+redact = ["password", "passwd", "pass", "api_key", "api_token", "access_key", "secret_key", "private_key", "secret"]
+
+disable-sockets = false
+socket-host = "127.0.0.1"
+socket-port = 3030
+
+statsd-disable = true
+statsd-flush-interval = 10
+statsd-metrics-host = "127.0.0.1"
+statsd-metrics-port = 8125

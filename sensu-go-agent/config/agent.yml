@@ -1,0 +1,4 @@
+{{toYaml cfg}}
+backend-url: {{#each bind.backend}}
+  {{#if cfg.agent-port}}- ws://{{sys.ip}}:{{cfg.agent-port}}{{/if}}
+{{/each}}
