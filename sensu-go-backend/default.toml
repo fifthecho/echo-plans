@@ -1,0 +1,9 @@
+log-level = "info"
+debug = false
+api-port = 8080
+dashboard-port = 3000
+agent-port = 8081
+
+[backend]
+cluster_admin_uname = "test"
+cluster_admin_pw = "test"

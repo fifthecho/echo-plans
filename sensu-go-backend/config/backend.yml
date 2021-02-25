@@ -1,0 +1,57 @@
+---
+state-dir: "{{ pkg.svc_data_path }}"
+cache-dir: "{{ pkg.svc_var_path }}"
+debug: {{ cfg.debug }}
+log-level: "{{ cfg.log-level }}"
+#deregistration-handler: "example_handler"
+
+##
+# agent configuration
+##
+agent-host: "[::]" # listen on all IPv4 and IPv6 addresses
+agent-port: {{cfg.agent-port}}
+
+##
+# api configuration
+##
+api-listen-address: "[::]:{{cfg.api-port}}" # listen on all IPv4 and IPv6 addresses
+api-url: "http://{{sys.hostname}}:{{cfg.api-port}}"
+
+##
+# dashboard configuration
+##
+#dashboard-cert-file: "/path/to/ssl/cert.pem"
+#dashboard-key-file: "/path/to/ssl/key.pem"
+dashboard-host: "[::]" # listen on all IPv4 and IPv6 addresses
+dashboard-port: {{cfg.dashboard-port}}
+
+##
+# ssl configuration
+##
+#cert-file: "/path/to/ssl/cert.pem"
+#key-file: "/path/to/ssl/key.pem"
+#trusted-ca-file: "/path/to/trusted-certificate-authorities.pem"
+#insecure-skip-tls-verify: false
+
+##
+# store configuration
+##
+#etcd-advertise-client-urls: "http://localhost:2379"
+#etcd-cert-file: "/path/to/ssl/cert.pem"
+#etcd-client-cert-auth: false
+#etcd-initial-advertise-peer-urls: "http://127.0.0.1:2380"
+#etcd-initial-cluster: "default=http://127.0.0.1:2380"
+#etcd-initial-cluster-state: "new" # new or existing
+#etcd-initial-cluster-token: "sensu"
+#etcd-key-file: "/path/to/ssl/key.pem"
+#etcd-listen-client-urls: "http://127.0.0.1:2379"
+#etcd-listen-peer-urls: "http://127.0.0.1:2380"
+#etcd-name: "default"
+#etcd-peer-cert-file: "/path/to/ssl/cert.pem"
+#etcd-peer-client-cert-auth: false
+#etcd-peer-key-file: "/path/to/ssl/key.pem"
+#etcd-peer-trusted-ca-file: "/path/to/ssl/key.pem"
+#etcd-trusted-ca-file: "/path/to/ssl/key.pem"
+#no-embed-etcd: false
+#etcd-cipher-suits
+#  - TLS_EXAMPLE

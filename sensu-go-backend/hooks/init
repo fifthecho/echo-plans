@@ -1,0 +1,4 @@
+# export admin password and username
+export SENSU_BACKEND_CLUSTER_ADMIN_USERNAME={{cfg.backend.cluster_admin_uname}}
+export SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD={{cfg.backend.cluster_admin_pw}}
+sensu-backend init
