@@ -1,4 +1,12 @@
-{{toYaml cfg}}
+{{toYaml cfg.agent}}
+{{#if cfg.automatic }}
+{{# if cfg.use_dns }}
+backend-url: {{#each bind.backend}}
+  {{#if cfg.agent-port}}- ws://{{sys.hostname}}:{{cfg.agent-port}}{{/if}}
+{{/each}}
+{{else}}
 backend-url: {{#each bind.backend}}
   {{#if cfg.agent-port}}- ws://{{sys.ip}}:{{cfg.agent-port}}{{/if}}
 {{/each}}
+{{/if}}
+{{/if}}

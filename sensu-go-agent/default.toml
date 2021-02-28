@@ -1,3 +1,6 @@
+automatic = true
+
+[agent]
 namespace = "default"
 subscriptions = ["system"]
 labels = ["habitat"]
