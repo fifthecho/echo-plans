@@ -1,0 +1,24 @@
+{{#if cfg.resolve_dns }}{{#each bind.backend }}{{#if cfg.api-port }}API_HOST={{sys.hostname}}:{{cfg.api-port}}{{/if}}{{/each}}
+{{else}}{{#each bind.backend}}{{#if cfg.api-port}}API_HOST={{sys.ip}}:{{cfg.api-port}}{{/if}}{{/each}}{{/if}}
+
+{{~#if cfg.backend_https}}
+SCHEME=https
+{{else}}
+SCHEME=http
+{{~/if}}
+
+pushd {{pkg.svc_data_path}}
+export NODE_ENV={{cfg.env}}
+export PORT={{cfg.port}}
+export HOST={{cfg.host}}
+export API_URL=$SCHEME://$API_HOST
+if [[ ! -d {{pkg.svc_data_path}}/.git ]]; then
+  cp -R {{pkg.path}}/src/* {{pkg.svc_data_path}}
+  cp -R {{pkg.path}}/src/.git {{pkg.svc_data_path}}
+  cp -R {{pkg.path}}/src/.schema {{pkg.svc_data_path}}
+  cp -R {{pkg.path}}/src/.yarnrc {{pkg.svc_data_path}}
+fi
+git checkout v{{pkg.version}}
+env
+yarn node scripts serve --modules-folder {{pkg.path}}/lib
+popd
