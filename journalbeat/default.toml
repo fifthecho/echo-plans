@@ -1,0 +1,13 @@
+# [["journalbeat.inputs"]]
+# paths = [ ]
+# seek = "cursor"
+
+# ["setup.template.settings"]
+# "index.number_of_shards" = 1
+
+# ["output.elasticsearch"]
+# hosts = [ "localhost:9200" ]
+
+# [[processors.add_host_metadata]]
+# [[processors.add_cloud_metadata]]
+# [[processors.add_docker_metadata]]

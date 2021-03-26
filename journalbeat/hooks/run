@@ -1,0 +1,1 @@
+journalbeat -e -c {{pkg.svc_config_path}}/journalbeat.yaml
